@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+body, ul, li, h1 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.con {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+:root {
+    --site-width: 800px;
+}
+
+.con {
+    width: var(--site-width);
+}
+
+
+/* form */
+.form1 .form-control > input {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/* table */
+.table-box > table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-box > table td, .table-box > table th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/* button */
+.btn {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background: #3D94F6;
+    background-image: linear-gradient(to bottom, #3D94F6, #1E62D0);
+    color: #fff;
+    box-shadow: 1px 1px 5px 0px #000;
+    text-shadow: 1px 1px 20px #000;
+    border: 1px solid #337FED;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background: #1E62D0;
+    background-image: linear-gradient(to bottom, #1E62D0, #3D94F6);
+}
