@@ -9,9 +9,12 @@ if(isset($config['needToLogin']) == false) {
     $config['needToLogin'] = true;
 }
 
+
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../lib/lib.php';
 require_once __DIR__ . '/../app/app.php';
+
+filterSqlInjection($_REQUEST);
 
 if($config['needToLogin'] and App::isLogined() == false) {
     jsAlert('Plase Login');

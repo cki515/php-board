@@ -37,3 +37,10 @@ function DB__getDBRow($sql) {
     }
     return [];
 }
+
+function filterSqlInjection(&$args) {
+    global $config;
+    foreach($args as $key => $val) {
+        $args[$key] = mysqli_real_escape_string($config['dbConn'], $val);
+    }
+}
