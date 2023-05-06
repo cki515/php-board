@@ -2,3 +2,27 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.top-bar {
+    height: 100px;
+    color: white;
+    background: black;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+.logo > span {
+    margin-right: 10px;
+}
+
+.menu-box-1 > ul > li > a {
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.menu-box-1 > ul > li:hover > a {
+    color: black;
+    background: white;
+}
