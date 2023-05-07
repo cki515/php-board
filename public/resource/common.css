@@ -57,14 +57,20 @@ a {
     justify-content: space-between;
 }
 
+.text-align-c {
+    text-align: center;
+}
+
 
 /* form */
-.form1 .form-control > input {
+.form1 .form-control > input,
+.form1 .form-control > select {
     width: 100%;
     display: flex;
     box-sizing: border-box;
     padding: 10px;
 }
+
 
 /* option */
 .option {
@@ -112,4 +118,10 @@ a {
 
 .btn-delete {
     background: red;
+}
+
+.table-box .listBtn {
+    border-radius: 0;
+    padding: 2px 4px;
+    margin-right: 2px;
 }

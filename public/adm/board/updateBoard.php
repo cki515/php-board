@@ -32,23 +32,23 @@ $board = ArticleService::getBoardById($_REQUEST['id']);
                 <td>
                     <div class="form-control">
                         <select class="option" name="boardCode">
-                        <?php switch($board['code']) {
-                            case "notice": ?>
-                                <option value="notice" selected>Notice</option>
-                                <option value="announce">Announce</option>
-                                <option value="news">News</option>
-                        <?php break;
-                            case "announce": ?>
-                                <option value="notice">Notice</option>
-                                <option value="announce" selected>Announce</option>
-                                <option value="news">News</option>
-                        <?php break; 
-                            case "news": ?>
-                                <option value="notice">Notice</option>
-                                <option value="announce">Announce</option>
-                                <option value="news" selected>News</option>
-                        <?php break;
-                            } ?>
+                            <?php switch($board['code']) {
+                                case "notice": ?>
+                                    <option value="notice" selected>Notice</option>
+                                    <option value="announce">Announce</option>
+                                    <option value="news">News</option>
+                            <?php break;
+                                case "announce": ?>
+                                    <option value="notice">Notice</option>
+                                    <option value="announce" selected>Announce</option>
+                                    <option value="news">News</option>
+                            <?php break; 
+                                case "news": ?>
+                                    <option value="notice">Notice</option>
+                                    <option value="announce">Announce</option>
+                                    <option value="news" selected>News</option>
+                            <?php break;
+                                } ?>
                         </select>
                     </div>
                 </td>

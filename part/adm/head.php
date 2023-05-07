@@ -19,7 +19,7 @@
                 <ul class="flex height-100p">
                     <li><a href="" class="flex flex-jc-c flex-ai-c height-100p">HOME</a></li>
                     <li><a href="/adm/board/list.php" class="flex flex-jc-c flex-ai-c height-100p">BOARD MANAGE</a></li>
-                    <li><a href="" class="flex flex-jc-c flex-ai-c height-100p">POST MANAGE</a></li>
+                    <li><a href="/adm/article/list.php" class="flex flex-jc-c flex-ai-c height-100p">POST MANAGE</a></li>
                     <li><a href="" class="flex flex-jc-c flex-ai-c height-100p">POPUP MANAGE</a></li>
                     <?php if(App::isLogined() ) { ?>
                         <li>
