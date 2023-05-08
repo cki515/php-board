@@ -2,7 +2,7 @@
 // ADMIN PAGE PLACE
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../init/adm.php';
 
-$pageTitle = 'Board Manage';
+$pageTitle = 'Board List';
 
 // ADMIN PAGE TOP
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/adm/head.php';
@@ -23,8 +23,8 @@ $boards = ArticleService::getForPrintBoards();
         <thead>
             <th>NUM</th> 
             <th>Date</th>
-            <th>Code</th>
-            <th>Name</th>
+            <th>Board Code</th>
+            <th>Board Name</th>
             <th>Manage</th>
         </thead>
         <tbody>

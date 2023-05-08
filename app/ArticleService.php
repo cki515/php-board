@@ -16,12 +16,21 @@ Class ArticleService {
     public static function makeBoard($args): int {
         return ArticleDAO::makeBoard($args);
     }
-    
+
     public static function updateBoard($args) {
         ArticleDAO::updateBoard($args);
     }
 
+    public static function writeArticle($args): int {
+        return ArticleDAO::writeArticle($args);
+    }
+
+
     public static function getForPrintListData($args) {
+        if(isE($args, 'displayStatus') == false) {
+            $args['displayStatus'] = 1;
+        }
+        
         $totalCount = ArticleDAO::getForPrintListArticlesCount($args);
         $itemsInPage = 5;
         $page = getArrValue($args, 'page', 1);
@@ -42,4 +51,10 @@ Class ArticleService {
         return $rsData;
     }
 
+    public static function getDisplayStatusName(int $displayStatus): string {
+        if($displayStatus == 1) {
+            return 'Display';
+        }
+        return 'Non Display';
+    }
 }

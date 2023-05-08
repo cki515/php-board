@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
     <?php require_once __DIR__ . "/../common.php"; ?>
-    <link rel="stylesheet" href="/resource/common.css">
-    <link rel="stylesheet" href="/resource/app.css">
     <link rel="stylesheet" href="/resource/adm/app.css">
-    
     <title><?=$config['siteName']?> ADMIN PAGE</title>
 </head>
 <body>

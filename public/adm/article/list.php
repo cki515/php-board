@@ -2,32 +2,34 @@
 // ADMIN PAGE PLACE
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../init/adm.php';
 
-$pageTitle = 'Article Manage';
+$pageTitle = 'Article List';
 
 // ADMIN PAGE TOP
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../part/adm/head.php';
 
-$boards = ArticleService::getForPrintBoards();
+$_REQUEST['displayStatus'] = '__ALL__';
 $listData = ArticleService::getForPrintListData($_REQUEST);
-
 $articles = $listData['articles'];
 $totalPage = $listData['totalPage'];
+$boards = ArticleService::getForPrintBoards();
 ?>
 
 <div class="con table-box">
     <table>
         <colgroup>
             <col width="30">
-            <col width="200">
+            <col width="180">
             <col width="100">
+            <col width="50">
             <col>
             <col width="180">
         </colgroup>
         <thead>
             <th>NUM</th> 
             <th>Date</th>
-            <th>BoardID</th>
-            <th>Title</th>
+            <th>Article</th>
+            <th>DisplayStatus</th>
+            <th>title</th>
             <th>Manage</th>
         </thead>
         <tbody>
@@ -36,6 +38,7 @@ $totalPage = $listData['totalPage'];
                 <td><?=$article['id']?></td>
                 <td><?=$article['regDate']?></td>
                 <td><?=$article['boardName']?></td>
+                <td><?=ArticleService::getDisplayStatusName($article['displayStatus'])?></td>
                 <td><?=$article['title']?></td>
                 <td>
                     <a href="/adm/board/updateBoard.php?id=<?=$article['id']?>" class="div btn btn-primary">Update</a>
@@ -61,7 +64,7 @@ $totalPage = $listData['totalPage'];
                             <option value="">ALL</option>
                             <?php foreach($boards as $board) { ?>
                             <?php $selected = $_REQUEST['boardId'] == $board['id'] ? 'selected' : '' ?>
-                                <option <?=$selected?> value="<?=$board['id']?>"><?=$board['name']?></option>
+                                <option <?=$selected?> value="<?=$board['id']?>"><?=$board['code']?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -100,7 +103,7 @@ $totalPage = $listData['totalPage'];
     <?php } ?>
 </div>
 <div class="con margin-top-30">
-    <a href="/adm/board/makeBoard.php" class="btn btn-info">Write Board</a>
+    <a href="/adm/article/makeArticle.php" class="btn btn-info">Write Article</a>
 </div>
 
 <?php
