@@ -9,10 +9,18 @@ Class ArticleService {
         return ArticleDAO::getBoardById($id);
     }
 
+    public static function getArticleById(int $id) {
+        return ArticleDAO::getArticleById($id);
+    }
+
     public static function DeleteBoard(int $id) {
         ArticleDAO::DeleteBoard($id);
     }
 
+    public static function DeleteArticle(int $id) {
+        ArticleDAO::DeleteArticle($id);
+    }
+    
     public static function makeBoard($args): int {
         return ArticleDAO::makeBoard($args);
     }
@@ -21,10 +29,13 @@ Class ArticleService {
         ArticleDAO::updateBoard($args);
     }
 
+    public static function updateArticle($args) {
+        ArticleDAO::updateArticle($args);
+    }
+
     public static function writeArticle($args): int {
         return ArticleDAO::writeArticle($args);
     }
-
 
     public static function getForPrintListData($args) {
         if(isE($args, 'displayStatus') == false) {
@@ -51,10 +62,23 @@ Class ArticleService {
         return $rsData;
     }
 
+    public static function getDisplayStatusNames() {
+        return [
+            0 => 'Non Display',
+            1 => 'Display',
+        ];
+    }
+
     public static function getDisplayStatusName(int $displayStatus): string {
-        if($displayStatus == 1) {
-            return 'Display';
+        return static::getDisplayStatusNames()[$displayStatus];
+    }
+
+    public static function getBoardName($boardId, &$boards) {
+        foreach($boards as $board) {
+            if($board['id'] == $boardId) {
+                return $board['code'];
+            }
         }
-        return 'Non Display';
+        return ;
     }
 }

@@ -103,6 +103,7 @@ a {
     text-shadow: 1px 1px 20px #000;
     border-radius: 10px;
     text-align: center;
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -119,8 +120,13 @@ a {
     background: red;
 }
 
+.btn-info {
+    margin-left: 6px;
+}
+
 .table-box .listBtn {
     border-radius: 0;
     padding: 2px 4px;
     margin-right: 2px;
 }
+

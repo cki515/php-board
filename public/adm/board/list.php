@@ -33,7 +33,7 @@ $boards = ArticleService::getForPrintBoards();
                 <td><?=$board['id']?></td>
                 <td><?=$board['regDate']?></td>
                 <td><?=$board['code']?></td>
-                <td><?=$board['name']?></td>
+                <td class="detailColor"><a href="/adm/board/updateBoard.php?id=<?=$board['id']?>"><?=$board['name']?></a></td>
                 <td>
                     <a href="/adm/board/updateBoard.php?id=<?=$board['id']?>" class="div btn btn-primary">Update</a>
                     <a onClick="if(confirm('Delete it?') == false) return false;" href="/adm/board/doDelete.php?id=<?=$board['id']?>" class="div btn btn-delete">Delete</a>

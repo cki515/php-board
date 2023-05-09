@@ -12,11 +12,21 @@ Class ArticleDAO {
         return DB__getDBRow($sql);
     }
 
+    public static function getArticleById(int $id) {
+        $sql = "SELECT * FROM ARTICLE WHERE id= '{$id}' AND delStatus = 0";
+        return DB__getDBRow($sql);
+    }
+
     public static function DeleteBoard(int $id) {
         $sql = "DELETE FROM BOARD WHERE id = '{$id}'";
         return DB__delete($sql); 
     }
 
+    public static function DeleteArticle(int $id) {
+        $sql = "UPDATE ARTICLE SET displayStatus = 0, delStatus = 1, delDate = NOW() WHERE id = '{$id}'";
+        return DB__update($sql); 
+    }
+    
     public static function makeBoard($args): int {
         $sql = "INSERT INTO BOARD SET regDate = NOW(), updateDate = NOW(), name = '{$args['boardName']}', code = '{$args['boardCode']}'";
         return DB__insert($sql);
@@ -27,16 +37,18 @@ Class ArticleDAO {
         return DB__update($sql); 
     }
     
+    public static function updateArticle($args) {
+        $sql = "UPDATE ARTICLE SET updateDate = NOW(), title = '{$args['title']}', content = '{$args['content']}', boardId = '{$args['boardId']}', displayStatus = '{$args['displayStatus']}' WHERE id = '{$args['id']}'";
+        return DB__update($sql); 
+    }
+    
     public static function writeArticle($args): int {
-        $sql = "INSERT INTO ARTICLE SET regDate = NOW(), updateDate = NOW(), memberId = '{$args['memberId']}', boardId = '{$args['boardId']}', title = '{$args['title']}', content = '{$args['content']}', displayStatus = 1";
+        $sql = "INSERT INTO ARTICLE SET regDate = NOW(), updateDate = NOW(), memberId = '{$args['memberId']}', boardId = '{$args['boardId']}', title = '{$args['title']}', content = '{$args['content']}', displayStatus = 1, delStatus = 0";
         return DB__insert($sql);
     }
 
-    
-
-
     public static function getForPrintListArticlesCount($args): int {
-        $sql = "SELECT COUNT(*) AS cnt FROM ARTICLE WHERE 1";
+        $sql = "SELECT COUNT(*) AS cnt FROM ARTICLE WHERE 1 AND delStatus = 0";
         
         // displayStatus
         if(isE($args, 'displayStatus') and $args['displayStatus'] !== '__ALL__') {
@@ -67,7 +79,9 @@ Class ArticleDAO {
         FROM ARTICLE AS A
         INNER JOIN BOARD AS B
         ON A.boardId = B.id
-        WHERE 1";
+        WHERE 1
+        AND delStatus = 0
+        ";
 
         // displayStatus
         if(isE($args, 'displayStatus') and $args['displayStatus'] !== '__ALL__') {

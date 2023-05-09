@@ -39,10 +39,10 @@ $boards = ArticleService::getForPrintBoards();
                 <td><?=$article['regDate']?></td>
                 <td><?=$article['boardName']?></td>
                 <td><?=ArticleService::getDisplayStatusName($article['displayStatus'])?></td>
-                <td><?=$article['title']?></td>
+                <td class="detailColor"><a href="/adm/article/detail.php?id=<?=$article['id']?>"><?=$article['title']?></a></td>
                 <td>
-                    <a href="/adm/board/updateBoard.php?id=<?=$article['id']?>" class="div btn btn-primary">Update</a>
-                    <a onClick="if(confirm('Delete it?') == false) return false;" href="/adm/board/doDelete.php?id=<?=$article['id']?>" class="div btn btn-delete">Delete</a>
+                    <a href="/adm/article/updateArticle.php?id=<?=$article['id']?>" class="div btn btn-primary">Update</a>
+                    <a onClick="if(confirm('Delete it?') == false) return false;" href="/adm/article/doDelete.php?id=<?=$article['id']?>" class="div btn btn-delete">Delete</a>
                 </td>
             </tr>
             <?php } ?>

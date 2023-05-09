@@ -80,7 +80,7 @@ var ArticleWriteForm__submitDone = false;
                 <th>Write</th>
                 <td>
                     <div class="form-control">
-                        <button type="submit" class="btn btn-primary">Write</button>
+                        <button type="submit" class="btn btn-info">Write</button>
                     </div>
                 </td>
             </tr>
